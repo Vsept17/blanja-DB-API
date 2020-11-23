@@ -4,25 +4,21 @@ Sebuah aplikasi RESTFul API dengan database MySQL yang diambil sebagai data API 
 
 # Requirement:
 - Node JS
-- Express JS
-  npm i express
+- Express JS -> npm i express
 - Javascript
-- MySQL
-  npm i mysql
+- MySQL -> npm i mysql
 
 # Tools
 - NPM
-- Nodemon
-  npm i nodemon
-- Morgan
-  npm i morgan
+- Nodemon -> npm i nodemon
+- Morgan -> npm i morgan
 - ESLint
+- Postman
 
 # Database
 Nama DB: blanja_db
-Table: - products
-       - category
-       - history
+
+Table: - products, category, history
 
 # Endpoint
 1. GET
@@ -39,8 +35,11 @@ Table: - products
 
 3. PATCH
    - localhost:8000/products/update-product
-   
-4.DELETE
+
+4. DELETE
    - localhost:8000/delete-product-:id
-   
+
+# Postman
+Postman Documentation:
+https://www.getpostman.com/collections/e7b00c9079b587c5afa0
    
