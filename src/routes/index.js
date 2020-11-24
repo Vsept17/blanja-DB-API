@@ -9,23 +9,18 @@ const productSortRouter = require("./product-sort");
 const searchRouter = require("./search");
 
 
-mainRouter.use("/", welcomeRouter);
+mainRouter.use("/", welcomeRouter); // Done flowcart
 
 //Route CRUD
-mainRouter.use("/products", productsRouter);
-mainRouter.use("/products/create-product", productsRouter);
-mainRouter.use("/products/update-product", productsRouter);
-mainRouter.use("/products/delete-product", productsRouter);
+mainRouter.use("/products", productsRouter); // Done flowcart
 
 //Route History
-mainRouter.use("/history", historyRouter);
+mainRouter.use("/history", historyRouter); // Done flowcart
 
 //Route Sorting
-mainRouter.use("/products/sort-by-name-asc", productSortRouter);
-mainRouter.use("/products/sort-by-update-asc", productSortRouter);
-mainRouter.use("/products/sort-by-price-asc", productSortRouter);
+mainRouter.use("/products/sort", productSortRouter);// Done Flowchart
 
 //Route Search
-mainRouter.use("/products/search", searchRouter);
+mainRouter.use("/products/search", searchRouter); // Done flowcart
 
 module.exports = mainRouter

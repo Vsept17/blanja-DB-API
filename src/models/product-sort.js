@@ -3,9 +3,9 @@ const db = require("../config/mySQL");
 module.exports = {
     sortByName: () => {
         return new Promise((resolve, reject) => {
-            const queryString = "SELECT p.id, p.product_name, p.product_price, p.product_color, category.category_name, p.product_size, p.product_qty, p.product_condition, p.product_description, p.product_rate FROM products AS p join category on category.id = p.product_category ORDER BY product_name ASC"
+            const queryStringByName = "SELECT p.id, p.product_name, p.product_price, p.product_color, category.category_name, p.product_size, p.product_qty, p.product_condition, p.product_description, p.product_rate, p.updated_at FROM products AS p join category on category.id = p.product_category ORDER BY product_name ASC"
     
-            db.query(queryString, (err, data) => {
+            db.query(queryStringByName, (err, data) => {
                 if(!err) {
                     resolve(data);
                 } else {
@@ -17,9 +17,9 @@ module.exports = {
 
     sortByUpdate: () => {
         return new Promise((resolve, reject) => {
-            const queryString = "SELECT p.id, p.product_name, p.product_price, p.product_color, category.category_name, p.product_size, p.product_qty, p.product_condition, p.product_description, p.product_rate, p.updated_at FROM products AS p join category on category.id = p.product_category ORDER BY updated_at ASC"
+            const queryStringByUpdate = "SELECT p.id, p.product_name, p.product_price, p.product_color, category.category_name, p.product_size, p.product_qty, p.product_condition, p.product_description, p.product_rate, p.updated_at FROM products AS p join category on category.id = p.product_category ORDER BY updated_at DESC"
     
-            db.query(queryString, (err, data) => {
+            db.query(queryStringByUpdate, (err, data) => {
                 if(!err) {
                     resolve(data);
                 } else {
@@ -31,9 +31,9 @@ module.exports = {
 
     sortByPrice: () => {
         return new Promise((resolve, reject) => {
-            const queryString = "SELECT p.id, p.product_name, p.product_price, p.product_color, category.category_name, p.product_size, p.product_qty, p.product_condition, p.product_description, p.product_rate, p.updated_at FROM products AS p join category on category.id = p.product_category ORDER BY product_price ASC"
+            const queryStringByPrice = "SELECT p.id, p.product_name, p.product_price, p.product_color, category.category_name, p.product_size, p.product_qty, p.product_condition, p.product_description, p.product_rate, p.updated_at FROM products AS p join category on category.id = p.product_category ORDER BY product_price DESC"
     
-            db.query(queryString, (err, data) => {
+            db.query(queryStringByPrice, (err, data) => {
                 if(!err) {
                     resolve(data);
                 } else {

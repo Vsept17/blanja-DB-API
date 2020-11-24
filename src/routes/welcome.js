@@ -3,7 +3,7 @@ const express = require('express')
 const welcomeRouter = express.Router()
 
 welcomeRouter.get("/", (req, res) => {
-    res.send("Hello World")
+    res.send("Selamat Datang di Blanja")
 })
 
 module.exports = welcomeRouter;

@@ -2,7 +2,6 @@ const productSortModel = require("../models/product-sort");
 
 module.exports ={
     sortByNameProduct: (req, res) => {
-        
         productSortModel.sortByName()
         .then((data) => {
             res.json(data);
@@ -12,7 +11,8 @@ module.exports ={
     },
 
     sortByUpdateProduct: (req, res) => {
-        productSortModel.sortByUpdate().then((data) => {
+        productSortModel.sortByUpdate()
+        .then((data) => {
             res.json(data);
         }).catch((err) => {
             res.json(err)
@@ -20,8 +20,8 @@ module.exports ={
     },
 
     sortByPriceProduct: (req, res) => {
-        const getProducts = 
-        getProducts.then((data) => {
+        productSortModel.sortByPrice()
+        .then((data) => {
             res.json(data);
         }).catch((err) => {
             res.json(err)

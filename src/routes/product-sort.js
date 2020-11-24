@@ -5,12 +5,12 @@ const productSortRouter = express.Router();
 const productSortControllers = require("../controllers/product-sort")
 
 // Sort By Name
-productSortRouter.get("/", productSortControllers.sortByNameProduct)
+productSortRouter.get("/by-name", productSortControllers.sortByNameProduct)
 
 // Sort By Update
-productSortRouter.get("/", productSortControllers.sortByUpdateProduct)
+productSortRouter.get("/by-update", productSortControllers.sortByUpdateProduct)
 
 // Sort By Price
-productSortRouter.get("/", productSortControllers.sortByPriceProduct)
+productSortRouter.get("/by-price", productSortControllers.sortByPriceProduct)
 
 module.exports = productSortRouter

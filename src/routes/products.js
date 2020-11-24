@@ -5,15 +5,15 @@ const productsRouter = express.Router();
 const productsControllers = require("../controllers/products")
 
 //CREATE
-productsRouter.post("/", productsControllers.createProduct);
+productsRouter.post("/create-product", productsControllers.createProduct);
 
 //READ
 productsRouter.get("/", productsControllers.readProduct);
 
 // UPDATE
-productsRouter.patch("/", productsControllers.updateProduct);
+productsRouter.patch("/update-product", productsControllers.updateProduct);
 
 // DELETE
-productsRouter.delete("/:id", productsControllers.deleteProduct);
+productsRouter.delete("/delete-product-:id", productsControllers.deleteProduct);
 
 module.exports = productsRouter;

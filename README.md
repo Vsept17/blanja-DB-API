@@ -4,14 +4,17 @@ Sebuah aplikasi RESTFul API dengan database MySQL yang diambil sebagai data API.
 
 
 
-Requirement:
-- Node JS
-- NPM
+# Built With:
+
+Program ini dibuat
+
 - Express JS
 - Javascript
 - MySQL
 
-Tools
+# Tools:
+- Node JS
+- NPM
 - Nodemon
 - Morgan 
 - ESLint
