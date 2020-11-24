@@ -2,19 +2,9 @@
 
 Sebuah aplikasi RESTFul API dengan database MySQL yang diambil sebagai data API dan menggunakan Postman untuk melakukan testing.
 
-<<<<<<< HEAD
-
-
-# Built With:
-
-Program ini dibuat
-
-- Express JS
-=======
 # Requirement:
 - Node JS
 - Express JS -> npm i express
->>>>>>> e5825fa8e5921a89357d9aa05452cdbae31e4795
 - Javascript
 - MySQL -> npm i mysql
 
@@ -49,16 +39,8 @@ Table: - products, category, history
 4. DELETE
    - localhost:8000/delete-product-:id
 
-<<<<<<< HEAD
-# Tools:
-- Node JS
-- NPM
-- Nodemon
-- Morgan 
-- ESLint
-=======
 # Postman
 Postman Documentation:
 https://www.getpostman.com/collections/e7b00c9079b587c5afa0
    
->>>>>>> e5825fa8e5921a89357d9aa05452cdbae31e4795
+
