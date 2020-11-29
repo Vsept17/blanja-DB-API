@@ -9,18 +9,18 @@ const productSortRouter = require("./product-sort");
 const searchRouter = require("./search");
 
 
-mainRouter.use("/", welcomeRouter); // Done flowcart
+mainRouter.use("/", welcomeRouter);
 
 //Route CRUD
-mainRouter.use("/products", productsRouter); // Done flowcart
+mainRouter.use("/products", productsRouter);
 
 //Route History
-mainRouter.use("/history", historyRouter); // Done flowcart
+mainRouter.use("/history", historyRouter); 
 
 //Route Sorting
-mainRouter.use("/products/sort", productSortRouter);// Done Flowchart
+mainRouter.use("/products/sort", productSortRouter);
 
 //Route Search
-mainRouter.use("/products/search", searchRouter); // Done flowcart
+mainRouter.use("/products/search", searchRouter);
 
 module.exports = mainRouter

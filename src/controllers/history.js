@@ -1,22 +1,23 @@
 const historyModel = require("../models/history")
+const form = require("../helpers/form")
 
 module.exports = {
     createHistory: (req, res) => {
         const { body } = req;
         historyModel.createHistory(body).then((data) => {
-            res.json(data)
+            form.success(res, data)
         })
         .catch((err) => {
-            res.json(err)
+            form.error(res, err)
         })
     },
 
     readHistory: (req, res) => {
         historyModel.readHistory().then((data) => {
-            res.json(data)
+            form.success(res, data)
         })
         .catch((err) => {
-            res.json(err)
+            form.error(res, err)
         })
     }
 }

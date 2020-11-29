@@ -1,30 +1,15 @@
 const productSortModel = require("../models/product-sort");
+const form = require("../helpers/form");
 
 module.exports ={
-    sortByNameProduct: (req, res) => {
-        productSortModel.sortByName()
+    sortBy: (req, res) => {
+        const { key } = req.query
+        const { sort } = req.query
+        productSortModel.sortBy(key, sort)
         .then((data) => {
-            res.json(data);
+            form.success(res, data);
         }).catch((err) => {
-            res.json(err)
-        })
-    },
-
-    sortByUpdateProduct: (req, res) => {
-        productSortModel.sortByUpdate()
-        .then((data) => {
-            res.json(data);
-        }).catch((err) => {
-            res.json(err)
-        })
-    },
-
-    sortByPriceProduct: (req, res) => {
-        productSortModel.sortByPrice()
-        .then((data) => {
-            res.json(data);
-        }).catch((err) => {
-            res.json(err)
+            form.error(res, err)
         })
     }
 }

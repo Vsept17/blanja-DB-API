@@ -1,6 +1,6 @@
 const express = require('express')
 const logger =require("morgan")
-
+const cors = require('cors')
 const mainRouter = require("./src/routes/index")
 
 const app = express()
@@ -10,6 +10,7 @@ app.listen(port, ()=>{
     console.log(`Server is running at port ${port}`)
 })
 
+app.use(cors())
 app.use(logger("dev"))
 // tambah parser untuk www.form-urlencoded (postman)
 app.use(express.urlencoded({extended: false}))
