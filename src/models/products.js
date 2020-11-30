@@ -16,7 +16,7 @@ module.exports = {
 
     readProduct: () => {
         return new Promise((resolve, reject) => {
-            const queryString = "SELECT p.id, p.product_name, p.product_price, p.product_color, category.category_name, p.product_size, p.product_qty, p.product_condition, p.product_description, p.product_rate, p.created_at, p.updated_at FROM products AS p JOIN category on category.id = p.product_category"
+            const queryString = "SELECT p.id, p.product_name, p.product_price, p.product_brand, p.product_color, category.category_name, p.product_size, p.product_qty, p.product_condition, p.product_description, p.product_rate, p.created_at, p.updated_at FROM products AS p JOIN category on category.id = p.product_category"
     
             db.query(queryString, (err, data) => {
                 if(!err) {
@@ -31,7 +31,7 @@ module.exports = {
     readSingleProduct: (req) => {
         const { id } = req.params;
         return new Promise((resolve, reject) => {
-            const qs = "SELECT p.id, p.product_name, p.product_price, p.product_color, category.category_name, p.product_size, p.product_qty, p.product_condition, p.product_description, p.product_rate, p.created_at, p.updated_at FROM products AS p JOIN category on category.id = p.product_category WHERE p.id = ?"
+            const qs = "SELECT p.id, p.product_name, p.product_price, p.product_brand, p.product_color, category.category_name, p.product_size, p.product_qty, p.product_condition, p.product_description, p.product_rate, p.created_at, p.updated_at FROM products AS p JOIN category on category.id = p.product_category WHERE p.id = ?"
             db.query(qs,  id, (err, data) => {
                 if (!err) {
                     resolve(data);
