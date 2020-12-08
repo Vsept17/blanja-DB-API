@@ -9,6 +9,7 @@ const productSortRouter = require("./product-sort");
 const searchRouter = require("./search");
 const authRouter = require("./auth");
 const imgUploadRouter = require("./imgUpload")
+const multiImgUploadRouter = require("./multiImgUpload")
 const checkToken = require("../helpers/middleware/checkToken")
 
 
@@ -29,5 +30,7 @@ mainRouter.use("/search", searchRouter);
 mainRouter.use("/auth", authRouter);
 
 mainRouter.use("/upload", imgUploadRouter);
+
+mainRouter.use("/multi-upload", multiImgUploadRouter);
 
 module.exports = mainRouter

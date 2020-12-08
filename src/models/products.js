@@ -2,7 +2,7 @@ const db = require("../config/mySQL");
 // const checkToken = require("../helpers/middleware/checkToken")
 
 module.exports = {
-  createProduct: (insertBody, level) => {
+  createProduct: (insertBody, level, filePath) => {
     return new Promise((resolve, reject) => {
       const postQUeryString = "INSERT INTO products SET ?";
       if (level > 1) {
@@ -11,7 +11,7 @@ module.exports = {
           status: 401,
         });
       } else {
-        db.query( postQUeryString,  [insertBody, level], (err, data) => {
+        db.query( postQUeryString,  [insertBody, level, filePath], (err, data) => {
         
           if (!err) {
            resolve(data);
@@ -79,7 +79,7 @@ module.exports = {
 
     return new Promise((resolve, reject) => {
       const qs =
-        "SELECT p.id, p.product_name, p.product_price, p.product_brand, p.product_color, category.category_name, p.product_size, p.product_qty, p.product_condition, p.product_description, p.product_rate, p.created_at, p.updated_at FROM products AS p JOIN category on category.id = p.product_category WHERE p.id = ?";
+        "SELECT p.id, p.product_name, p.product_price, p.product_brand, p.product_color, category.category_name, p.product_size, p.product_qty, p.product_condition, p.product_description, p.product_rate, p.product_image, p.created_at, p.updated_at FROM products AS p JOIN category on category.id = p.product_category WHERE p.id = ?";
 
       db.query(qs, id, (err, data) => {
         if (!err) {

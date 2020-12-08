@@ -4,10 +4,12 @@ module.exports = {
   createProduct: (req, res) => {
     const { body } = req;
     const level = req.decodedToken.level;
-    console.log(body);
-    const insertBody = { ...body, updated_at: new Date(Date.now()) };
+    const filePath = JSON.stringify(
+      req.files.map((e) => "/images/" + e.filename)
+  )
+    const insertBody = { ...body, updated_at: new Date(Date.now()), product_image: filePath, };
     productsModel
-      .createProduct(insertBody, level)
+      .createProduct(insertBody, level, filePath)
       .then((data) => {
 
         const successCreate = {
@@ -104,6 +106,7 @@ module.exports = {
   },
 
   readSingleProduct: (req, res) => {
+    // console.log(req.data.data)
     productsModel
       .readSingleProduct(req)
       .then((data) => {

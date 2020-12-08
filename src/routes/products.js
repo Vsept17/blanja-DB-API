@@ -3,10 +3,11 @@ const express = require('express');
 const productsRouter = express.Router();
 
 const productsControllers = require("../controllers/products")
+const uploadImage = require("../helpers/middleware/multiUpload")
 const checkToken = require("../helpers/middleware/checkToken")
 
 //CREATE
-productsRouter.post("/", checkToken, productsControllers.createProduct);
+productsRouter.post("/", checkToken, uploadImage, productsControllers.createProduct);
 
 //READ
 productsRouter.get("/allproducts", productsControllers.readProduct);

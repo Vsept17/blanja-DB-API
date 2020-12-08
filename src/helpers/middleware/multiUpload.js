@@ -12,7 +12,6 @@ const multerStorage = multer.diskStorage({
           )}`
         cb(null,  nameFormat)
       }
-
 })
 
 const upload = multer({
@@ -20,9 +19,9 @@ const upload = multer({
     limits: 2 * 1000 * 1000,
 })
 
-const singleUpload = (req, res, next) => {
-    const uploadSingle = upload.single("image")
-    uploadSingle(req, res, (err) => {
+const multiUpload = (req, res, next) => {
+    const uploadMulti = upload.array("image", 4)
+    uploadMulti(req, res, (err) => {
         if (err) {
             form.error(res, {
                 msg: "Multer error",
@@ -33,5 +32,4 @@ const singleUpload = (req, res, next) => {
         }
     })
 }
-
-module.exports = singleUpload;
+module.exports = multiUpload;
