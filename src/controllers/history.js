@@ -4,8 +4,17 @@ const form = require("../helpers/form")
 module.exports = {
     createHistory: (req, res) => {
         const { body } = req;
-        historyModel.createHistory(body).then((data) => {
-            form.success(res, data)
+        const insertBody = {...body, 
+            updated_at: new Date(Date.now()) }
+        historyModel.createHistory(insertBody).then((data) => {
+            const successCreate = {
+                msg: "Data berhasil ditambahkan",
+                data: {
+                    id: data.insertId, 
+                    ...insertBody
+                }
+            }
+            form.success(res, successCreate)
         })
         .catch((err) => {
             form.error(res, err)

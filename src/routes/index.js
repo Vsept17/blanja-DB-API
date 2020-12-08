@@ -7,20 +7,27 @@ const productsRouter = require("./products");
 const historyRouter = require("./history");
 const productSortRouter = require("./product-sort");
 const searchRouter = require("./search");
+const authRouter = require("./auth");
+const imgUploadRouter = require("./imgUpload")
+const checkToken = require("../helpers/middleware/checkToken")
 
 
 mainRouter.use("/", welcomeRouter);
 
 //Route CRUD
-mainRouter.use("/products", productsRouter);
+mainRouter.use("/product", checkToken, productsRouter);
 
 //Route History
-mainRouter.use("/history", historyRouter); 
+mainRouter.use("/history",  historyRouter); 
 
 //Route Sorting
-mainRouter.use("/products/sort", productSortRouter);
+mainRouter.use("/sort", productSortRouter);
 
 //Route Search
-mainRouter.use("/products/search", searchRouter);
+mainRouter.use("/search", searchRouter);
+
+mainRouter.use("/auth", authRouter);
+
+mainRouter.use("/upload", imgUploadRouter);
 
 module.exports = mainRouter
