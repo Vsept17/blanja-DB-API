@@ -4,9 +4,10 @@ const form = require("../helpers/form")
 module.exports = {
     createHistory: (req, res) => {
         const { body } = req;
+        const level = req.decodedToken.level;
         const insertBody = {...body, 
             updated_at: new Date(Date.now()) }
-        historyModel.createHistory(insertBody).then((data) => {
+        historyModel.createHistory(insertBody, level).then((data) => {
             const successCreate = {
                 msg: "Data berhasil ditambahkan",
                 data: {
@@ -22,7 +23,8 @@ module.exports = {
     },
 
     readHistory: (req, res) => {
-        historyModel.readHistory().then((data) => {
+        const level = req.decodedToken.level;
+        historyModel.readHistory(level).then((data) => {
             form.success(res, data)
         })
         .catch((err) => {

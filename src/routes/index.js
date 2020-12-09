@@ -16,10 +16,10 @@ const checkToken = require("../helpers/middleware/checkToken")
 mainRouter.use("/", welcomeRouter);
 
 //Route CRUD
-mainRouter.use("/product", checkToken, productsRouter);
+mainRouter.use("/products", checkToken, productsRouter);
 
 //Route History
-mainRouter.use("/history",  historyRouter); 
+mainRouter.use("/history", checkToken, historyRouter); 
 
 //Route Sorting
 mainRouter.use("/sort", productSortRouter);

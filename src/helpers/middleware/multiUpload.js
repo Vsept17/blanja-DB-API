@@ -20,7 +20,7 @@ const upload = multer({
 })
 
 const multiUpload = (req, res, next) => {
-    const uploadMulti = upload.array("image", 4)
+    const uploadMulti = upload.array("image", 10)
     uploadMulti(req, res, (err) => {
         if (err) {
             form.error(res, {

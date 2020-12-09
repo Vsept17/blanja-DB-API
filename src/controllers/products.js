@@ -7,6 +7,7 @@ module.exports = {
     const filePath = JSON.stringify(
       req.files.map((e) => "/images/" + e.filename)
   )
+  console.log(level)
     const insertBody = { ...body, updated_at: new Date(Date.now()), product_image: filePath, };
     productsModel
       .createProduct(insertBody, level, filePath)
@@ -17,6 +18,7 @@ module.exports = {
           data: {
             id: data.insertId,
             ...insertBody,
+   
           },
         };
 
@@ -65,9 +67,8 @@ module.exports = {
     const limit = Number(query.limit) || 5;
     const page = Number(query.page) || 1;
     const offset = (Number(query.page) - 1) * limit || 0;
-
+    
     const { sort, sortDesc } = req.query;
-
     let order = "";
     let desc = "";
 
@@ -106,7 +107,6 @@ module.exports = {
   },
 
   readSingleProduct: (req, res) => {
-    // console.log(req.data.data)
     productsModel
       .readSingleProduct(req)
       .then((data) => {
@@ -116,7 +116,7 @@ module.exports = {
             status: 404,
           });
         } else {
-          form.success(res, data[0]);
+          form.success(res, data[0])
         }
       })
       .catch((err) => {
@@ -161,8 +161,9 @@ module.exports = {
 
   deleteProduct: (req, res) => {
     const { id } = req.params;
+    const level = req.decodedToken.level;
     productsModel
-      .deleteProduct(id)
+      .deleteProduct(id, level)
       .then((data) => {
         if (data.affectedRows === 0) {
           res.status(404).json({
