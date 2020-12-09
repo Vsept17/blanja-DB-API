@@ -5,7 +5,7 @@ module.exports = {
     const { body } = req;
     const level = req.decodedToken.level;
     const filePath = JSON.stringify(
-      req.files.map((e) => "/images/" + e.filename)
+      req.files.map((e) => "/images" + "/" + e.filename +" ")
   )
   console.log(level)
     const insertBody = { ...body, updated_at: new Date(Date.now()), product_image: filePath, };
@@ -128,7 +128,9 @@ module.exports = {
     const { id } = req.body;
     const { body } = req;
     const level = req.decodedToken.level;
-    const updateBody = { ...body, updated_at: new Date(Date.now()) };
+    const singlePath = "/images/" + req.file.filename;
+    
+    const updateBody = { ...body, updated_at: new Date(Date.now()), product_image: singlePath };
     const idBody = { id };
 
     productsModel
