@@ -7,7 +7,6 @@ module.exports = {
     const filePath = JSON.stringify(
       req.files.map((e) => "/images" + "/" + e.filename +" ")
   )
-  console.log(level)
     const insertBody = { ...body, updated_at: new Date(Date.now()), product_image: filePath, };
     productsModel
       .createProduct(insertBody, level, filePath)
@@ -67,7 +66,7 @@ module.exports = {
     const limit = Number(query.limit) || 5;
     const page = Number(query.page) || 1;
     const offset = (Number(query.page) - 1) * limit || 0;
-    
+    const totalData = req.body.length
     const { sort, sortDesc } = req.query;
     let order = "";
     let desc = "";
@@ -85,7 +84,7 @@ module.exports = {
       }
     }
     productsModel
-      .readProductPagination(desc, order, limit, offset, page)
+      .readProductPagination(desc, order, limit, offset, page, totalData)
       .then((data) => {
         if (Math.ceil(data.products / limit) == data.products) {
           res.status(404).json({

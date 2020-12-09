@@ -24,23 +24,22 @@ Table: - products, category, history
 1. GET
    - localhost:8000/products
    - localhost:8000/history
-   - localhost:8000/products/search
-   - localhost:8000/products/sort/by-name
-   - localhost:8000/products/sort/by-price
-   - localhost:8000/products/sort/by-update
 
 2. POST
-   - localhost:8000/products/create-product
+   - localhost:8000/products
    - localhost:8000/history
 
 3. PATCH
-   - localhost:8000/products/update-product
+   - localhost:8000/products
 
 4. DELETE
    - localhost:8000/delete-product-:id
 
+5. Search
+   - localhost:8000/search
+
 # Postman
 Postman Documentation:
-https://www.getpostman.com/collections/e7b00c9079b587c5afa0
+https://documenter.getpostman.com/view/13598732/TVewZ4FS
    
 
